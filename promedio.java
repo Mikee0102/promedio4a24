@@ -49,6 +49,14 @@ public class promedio{
         }
     }
 
+    public static double calcularPromedioGrupo() {
+        double suma = 0;
+        for (Alumno a : alumnos){
+            suma += a.getPromedio();
+        }
+        return (suma / alumnos.length);
+    }
+
     public static void main(String[] args) throws IOException {
         int n; //tamaño del grupo
         double promedio; //promedio del grupo
@@ -67,16 +75,12 @@ public class promedio{
         leerAlumnos();
         //Mostrar la información
         imprimirAlumnos();
+        //Obtener el promedio
+        promedio = calcularPromedioGrupo();
 
-        // // obtener el promedio
-        // promedio = suma / n;
 
-        // System.out.println("-----------------------------------------");
-        // System.out.println("Las calificaciones de cada alumno son: ");
-        // for (double calif : calificaciones) {
-        //     System.out.println(calif);
-        // }
-        // System.out.println("---------------------------------------");
-        // System.out.println("El promedio del grupo es: " + promedio + "");
+        System.out.println("---------------------------------------");
+        System.out.println("El promedio del grupo es: " + promedio + "");
+
     }
 }
