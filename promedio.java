@@ -31,6 +31,7 @@ public class promedio{
             System.out.println("Escribe calificacion de ingles");
             entrada = bufer.readLine();
             a.setIngles(Double.parseDouble(entrada));
+            System.out.println("Escribe calificacion de oit: ");
             entrada = bufer.readLine();
             a.setOit(Double.parseDouble(entrada));
             a.setPromedio();
@@ -39,15 +40,18 @@ public class promedio{
         }
     }
 
+    public static void imprimirAlumnos() {
+        System.out.println("Contenido del arreglo alumnos: ");
+        for (Alumno a : alumnos){
+            System.out.println("----------------------");
+            System.out.println("Información del alumno: ");
+            System.out.println(a.toString());
+        }
+    }
 
     public static void main(String[] args) throws IOException {
         int n; //tamaño del grupo
-
-        //double [] calificaciones; //calificaciones de cada alumno
-        //double suma = 0; //para sumar las calificaciones
-        //double promedio; //promedio del grupo
-
-
+        double promedio; //promedio del grupo
 
         System.out.println("Programa para calcular promedio de un grupo ");
         System.out.println("------------------------------------------------");
@@ -59,18 +63,14 @@ public class promedio{
 
         //Construir el arreglo alumnos
         alumnos = new Alumno[n];
+        //Introducir información de los alumnos
+        leerAlumnos();
+        //Mostrar la información
+        imprimirAlumnos();
 
-        //calificaciones = new double[n]; // construccion del arreglo
-
-        // // Pedir cada calificacion y acumularla
-        // for (int i = 0; i < calificaciones.length; i++) {
-        //     System.out.println("Escribe la calificacion del alumno [" + (i+1) + "]:");
-        //     entrada = bufer.readLine();
-        //     calificaciones[i] = Double.parseDouble(entrada);
-        //     suma += calificaciones[i];
-        // }
         // // obtener el promedio
         // promedio = suma / n;
+
         // System.out.println("-----------------------------------------");
         // System.out.println("Las calificaciones de cada alumno son: ");
         // for (double calif : calificaciones) {
