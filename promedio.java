@@ -34,6 +34,7 @@ public class promedio{
             System.out.println("Escribe calificacion de oit: ");
             entrada = bufer.readLine();
             a.setOit(Double.parseDouble(entrada));
+
             a.setPromedio();
             //agregando un alumno al arreglo
             alumnos[i] = a;
@@ -57,6 +58,29 @@ public class promedio{
         return (suma / alumnos.length);
     }
 
+    public static double promedioEstructuras() {
+        double sumaEstructuras = 0;
+        for (Alumno a : alumnos) {
+            sumaEstructuras += a.getEstructuras();
+        }
+        return (sumaEstructuras / alumnos.length);
+    }
+
+    public static double promedioIngles() {
+        double sumaIngles = 0;
+        for (Alumno a : alumnos) {
+            sumaIngles += a.getIngles();
+        }
+        return (sumaIngles / alumnos.length);
+    }
+
+    public static double promedioOit() {
+        double sumaOit = 0;
+        for (Alumno a : alumnos) {
+            sumaOit += a.getOit();
+        }
+        return (sumaOit / alumnos.length);
+    }
     public static void main(String[] args) throws IOException {
         int n; //tamaño del grupo
         double promedio; //promedio del grupo
@@ -78,9 +102,11 @@ public class promedio{
         //Obtener el promedio
         promedio = calcularPromedioGrupo();
 
-
         System.out.println("---------------------------------------");
         System.out.println("El promedio del grupo es: " + promedio + "");
 
+        System.out.println("El promedio general de estructuras es: " + promedioEstructuras());
+        System.out.println("El promedio general de inglés es: " + promedioIngles());
+        System.out.println("El promedio general de iot es: " + promedioOit());
     }
 }
